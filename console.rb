@@ -35,14 +35,20 @@ film2.save()
 ticket1 = Ticket.new({
   'customer_id' => customer1.id,
   'film_id' => film1.id
-  })
+})
 ticket1.save
+customer1.funds -= film1.price
+customer1.update
 
 ticket2 = Ticket.new({
   'customer_id' => customer2.id,
   'film_id' => film2.id
-  })
+})
 ticket2.save
+customer2.funds -=film2.price
+customer2.update
+
+# ticket1 = Customer.buy_ticket( customer1, film1)
 
 Customer.all()
 Film.all()

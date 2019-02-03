@@ -1,4 +1,6 @@
 require_relative("../db/sql_runner")
+require_relative("film")
+require_relative("ticket")
 
 class Customer
 
@@ -9,7 +11,18 @@ class Customer
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @funds = options['funds'].to_i
+    # @ticket_count = []
   end
+
+  # def buy_ticket(customer, film)
+  #   ticket = Ticket.new({
+  #     'customer_id' => customer.id,
+  #     'film_id' => film.id
+  #   })
+  #   ticket.save
+  #   customer.funds -= film.price
+  #   customer.update
+  # end
 
   def films_booked()
     sql = "SELECT films.*
